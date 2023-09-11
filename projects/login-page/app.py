@@ -35,6 +35,10 @@ def main(page: ft.Page):
         if checkPass(password.value):
             answer.value = 'Successfull login.'
             # page.go = '/login?access=' + encrypt('test', password.value)
+        elif len(password.value) <= 3:
+            answer.value = 'Invalid password.'
+            button.disabled = False
+            password.focus()
         else:
             answer.value = 'Incorrect password. Please try again.'
             button.disabled = False
