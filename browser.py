@@ -23,7 +23,13 @@ def main(page: ft.Page):
             def close(e):
                 try:
                     os.kill(self.process.pid, signal.SIGTERM)
-                except: pass
+                except:
+                    dialog = ft.AlertDialog(
+                        title=ft.Text("Failed to kill process, most likely there is no process to kill")
+                    )
+                    page.dialog = dialog
+                    dialog.open = True
+                    page.update()
 
             def row():
                 gen = ft.ElevatedButton(project.split('\\')[-2].upper().replace('-', ' '), on_click=start)
