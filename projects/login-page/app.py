@@ -6,6 +6,7 @@ from flet.security import encrypt, decrypt
 from dotenv import load_dotenv
 load_dotenv()
 
+
 def checkPass(userInput: str):
 
     password = os.getenv('password')
@@ -14,6 +15,7 @@ def checkPass(userInput: str):
         return True
     else:
         return False
+
 
 def main(page: ft.Page):
 
@@ -47,7 +49,6 @@ def main(page: ft.Page):
             times = int(page.client_storage.get("try"))
             page.client_storage.set("try", str(int(times) + 1))
 
-
             if times + 1 >= 4:
                 page.client_storage.set("try", '0')
                 try_times = int(page.client_storage.get("try-time"))
@@ -76,5 +77,6 @@ def main(page: ft.Page):
     password = ft.TextField(hint_text="password", width=250)
     button = ft.ElevatedButton("Login", on_click=login)
     page.add(password, button, answer)
+
 
 ft.app(target=main)

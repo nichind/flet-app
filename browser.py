@@ -33,7 +33,7 @@ def main(page: ft.Page):
 
             def row():
                 gen = ft.ElevatedButton(project.split('\\')[-2].upper().replace('-', ' '), on_click=start)
-                cl = ft.ElevatedButton('Kill', on_click=close, opacity=5)
+                cl = ft.ElevatedButton('Kill', on_click=close, opacity=0)
 
                 self.row = [gen, cl]
                 return self.row
